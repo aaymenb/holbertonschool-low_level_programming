@@ -1,24 +1,17 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - Affiche l'alphabet en minuscules dix fois.
+ * print_alphabet - Affiche l'alphabet en minuscules dix fois.
  *
- * Return: Toujours 0.
+ * Return: no return
  */
 
-int print_alphabet(void)
+void print_alphabet(void)
 {
-	int i, j;
-
-	for (i = 0; i < 10; i++)
-	{
-		for (j = 'a'; j <= 'z'; j++)
+	int letter;
+	for (letter = 'a'; letter <= 'z'; letter++)
 		{
-			putchar(j);
+			_putchar(letter);
 		}
-		putchar('\n');
-	}
-	return (0);
-
+		_putchar(10);
 }
-
