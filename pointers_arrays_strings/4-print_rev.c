@@ -17,8 +17,8 @@ void print_rev(char *s)
 	/* Print the string in reverse */
 	for (len = len - 1; len >= 0; len--)
 	{
-	
+		putchar(s[len]);
 	}
 
-          putchar('\n'); /* Print a new line at the end */
+	 putchar('\n'); /* Print a new line at the end */
 }
