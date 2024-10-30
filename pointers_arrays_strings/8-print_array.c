@@ -1,50 +1,24 @@
+#include <stdio.h>
 #include "main.h"
 
 /**
- * print_array - Prints n elements of an array of integers, followed by a new line.
- * @a: Pointer to the array of integers.
- * @n: Number of elements to be printed.
- */
+* print_array - prints n element of array
+* @a: array
+* @n: number of elements
+* Return: nothing
+*/
+
 void print_array(int *a, int n)
 {
-	int i, num, digit;
+	int inc;
 
-	for (i = 0; i < n; i++)
+	for (inc = 0; inc < n ; inc++)
 	{
-		num = a[i];
-
-		/* Imprimer le signe négatif si nécessaire */
-		if (num < 0)
-		{
-			_putchar('-');
-			num = -num;
-		}
-
-		/* Imprimer chaque chiffre */
-		if (num == 0)
-		{
-			_putchar('0');
-		}
+		if (inc != n - 1)
+			printf("%d, ", a[inc]);
 		else
-		{
-			if (num > 0)
-			{
-				digit = num;
-				/* Utiliser une méthode simple pour extraire et imprimer les chiffres */
-				if (digit >= 10)
-					print_array(&digit / 10, 1);  // Appel récursif pour imprimer les chiffres
-				_putchar((digit % 10) + '0');  // Imprimer le dernier chiffre
-			}
-		}
+			printf("%d", a[inc]);
 
-		/* Ajouter une virgule et un espace sauf pour le dernier élément */
-		if (i < n - 1)
-		{
-			_putchar(',');
-			_putchar(' ');
-		}
 	}
-
-	_putchar('\n');  // Nouvelle ligne à la fin
+	putchar(10);
 }
-
