@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
  * main - check the code
  *
@@ -7,10 +8,15 @@
  */
 int main(void)
 {
-	int n;
-	n = 402;
-	printf("n=%d\n", n); /* Print the initial value of n */
-	reset_to_98(&n);      /* Call the function with the address of n */
-	printf("n=%d\n", n);  /* Print the updated value of n */
-	return (0);
+    char s1[98] = "Hello ";
+    char s2[] = "World!\n";
+    char *ptr;
+
+    printf("%s\n", s1);
+    printf("%s", s2);
+    ptr = _strcat(s1, s2);
+    printf("%s", s1);
+    printf("%s", s2);
+    printf("%s", ptr);
+    return (0);
 }
