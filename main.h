@@ -2,5 +2,5 @@
 #define MAIN_H
 char *_strchr(char *s, char c);
 
-#endif /* MAIN_H */
+#endif
 
