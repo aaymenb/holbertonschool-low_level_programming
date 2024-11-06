@@ -2,25 +2,32 @@
 #include <stdio.h>
 
 /**
- * main - check the code
+ * my_sqrt_recursion - This is my my_sqrt_recursion
+ *                     function about the square root
+ * @a: The entry is equal to n, of the before function
+ * @b: This is the sum
  *
- * Return: Always 0.
+ * Return: This is the result
  */
-int main(void)
+int my_sqrt_recursion(int a, int b)
 {
-    int r;
+	if (a == (b * b))
+		return (b);
+	else if ((b * b) >= a)
+		return (-1);
+	else
+		return (my_sqrt_recursion(a, b + 1));
+}
 
-    r = _sqrt_recursion(1);
-    printf("%d\n", r);
-    r = _sqrt_recursion(1024);
-    printf("%d\n", r);
-    r = _sqrt_recursion(16);
-    printf("%d\n", r);
-    r = _sqrt_recursion(17);
-    printf("%d\n", r);
-    r = _sqrt_recursion(25);
-    printf("%d\n", r);
-    r = _sqrt_recursion(-1);
-    printf("%d\n", r);
-    return (0);
+/**
+ * _sqrt_recursion - This is my first function
+ * @n: This is my value
+ *
+ * Return: This is my result of the function my_sqrt_recursion
+ */
+int _sqrt_recursion(int n)
+{
+	if (n <= 0)
+		return (-1);
+	return (my_sqrt_recursion(n, 0));
 }
