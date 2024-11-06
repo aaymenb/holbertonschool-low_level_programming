@@ -1,39 +1,28 @@
-/*
- * File: 3-strspn.c
- * Auth: Brennan D Baraban
- */
-
-#include "main.h"
-
+#include <stdio.h>
 /**
- * _strspn - Gets the length of a prefix substring.
- * @s: The string to be searched.
- * @accept: The prefix to be measured.
+ * _strspn - Calcule la longueur du préfixe de @str qui contient uniquement
+ * @str: La chaîne principale
+ * @accept: La chaîne contenant les caractères acceptés dans le préfixe
  *
- * Return: The number of bytes in s which
- *         consist only of bytes from accept.
+ * Return: La longueur de la sous-chaîne de préfixe de @str
  */
-unsigned int _strspn(char *s, char *accept)
+int _strspn(const char *str, const char *accept)
 {
-	unsigned int bytes = 0;
-	int index;
-
-	while (*s)
+	int i, j;
+	int found;
+		for (i = 0; str[i] != '\0'; i++)
 	{
-		for (index = 0; accept[index]; index++)
+		found = 0;
+		for (j = 0; accept[j] != '\0'; j++)
 		{
-			if (*s == accept[index])
+			if (str[i] == accept[j])
 			{
-				bytes++;
+				found = 1;
 				break;
 			}
-
-			else if (accept[index + 1] == '\0')
-				return (bytes);
 		}
-
-		s++;
+		if (!found)
+			break;
 	}
-
-	return (bytes);
+	return (i);
 }
