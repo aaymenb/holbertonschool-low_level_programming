@@ -1,19 +1,12 @@
 #include "main.h"
-#include <stdio.h>
-/**
- * _puts_recursion - Write a function that prints a string
- *@s:String the print
- */
 
-void _puts_recursion(char *s)
+/**
+ * main - check the code
+ *
+ * Return: Always 0.
+ */
+int main(void)
 {
-if (*s != 0)
-{
-_putchar(*s);
-_puts_recursion(s + 1);
-}
-else
-{
-_putchar('\n');
-}
+    _puts_recursion("Puts with recursion");
+    return (0);
 }
