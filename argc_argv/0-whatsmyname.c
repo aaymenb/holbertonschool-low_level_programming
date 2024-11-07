@@ -1,5 +1,3 @@
-int main(int argc, char *argv[])
-{#include "main.h"
 #include <stdio.h>
 
 /**
