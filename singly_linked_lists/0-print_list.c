@@ -1,34 +1,28 @@
-#include "lists.h"
 #include <stdio.h>
+#include "lists.h"
 
 /**
- * print_list - Prints all elements of a list_t list.
- * @h: A pointer to the head of the list_t list.
+ * print_list - Affiche tous les éléments d'une liste_t.
+ * @h: Pointeur vers la tête de la liste.
  *
- * Return: The number of nodes in the list.
- *
- * Description: This function prints the elements of a singly linked list
+ * Return: Le nombre de nœuds dans la liste.
  */
-
 size_t print_list(const list_t *h)
 {
-	size_t nodes = 0;
+	size_t count = 0;  /*Compteur pour le nombre de nœuds*/
 
+	/* Parcours de la liste */
 	while (h != NULL)
 	{
-		if (h->str == NULL)
-		{
+		if (h->str == NULL)  /* Si la chaîne est NULL, on affiche (nil)*/
 			printf("[0] (nil)\n");
-		}
-		else
-		{
+		else  /* Sinon, on affiche la longueur et la chaîne*/
 			printf("[%u] %s\n", h->len, h->str);
-		}
 
-		h = h->next;
-		nodes++;
+		h = h->next;  /*Avance au nœud suivant*/
+		count++;      /* Incrémente le compteur de nœuds*/
 	}
 
-	return (nodes);
+	return (count);
 }
 
