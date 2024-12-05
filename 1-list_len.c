@@ -1,23 +1,25 @@
 #include "lists.h"
-#include <stddef.h>
 
 /**
  * list_len - Returns the number of elements in a linked list_t list.
- * @h: Pointer to the head of the list.
+ * @h: A pointer to the head of the list_t list.
  *
  * Return: The number of elements in the list.
+ *
+ * Description: This function traverses a singly linked list of type list_t
+ * and counts the number of elements (nodes) in the list. It returns the total
+ * count of elements.
  */
 size_t list_len(const list_t *h)
 {
-	size_t count = 0; /* Initialize counter to 0 */
+	size_t elements = 0;
 
-	/* Traverse the list and count the nodes */
 	while (h != NULL)
 	{
-		count++;        /* Increment count for each node */
-		h = h->next;    /* Move to the next node */
+		h = h->next;
+		elements++;
 	}
 
-	return (count); /* Return the total count */
+	return (elements);
 }
 
