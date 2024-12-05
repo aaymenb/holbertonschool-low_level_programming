@@ -1,40 +1,48 @@
-#include "lists.h"
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 /**
- * _strlen - Returns the length of a string
- * @s: String being evaluated
+ * struct list_s - singly linked list
+ * @str: string - (malloc'ed string)
+ * @next: points to the next node
  *
- * Return: Length of string
+ * Description: singly linked list node structure
  */
-int _strlen(const char *s)
+struct list_s
 {
-	unsigned int i = 0;
+	char *str;
+	struct list_s *next;
+};
 
-	while (*s++)
-		++i;
-	return (i);
-}
+typedef struct list_s list_t;
 
 /**
- * add_node - Adds a node at the beginning of a list
- * @head: Pointer to address of a list
- * @str: Pointer to string
+ * add_node - adds a new node at the beginning of a list_t list
+ * @head: double pointer to the head of the list
+ * @str: string to be added to the node
  *
- * Return: Address of new element
- * On error, NULL
+ * Return: address of the new element, or NULL if it failed
  */
 list_t *add_node(list_t **head, const char *str)
-{
-	list_t *new;
 
-	new = malloc(sizeof(list_t));
-	if (!new)
+{
+	list_t *new_node;
+
+	new_node = (list_t *)malloc(sizeof(list_t));
+	if (new_node == NULL)
+		return (NULL);
+
+	new_node->str = strdup(str);
+	if (new_node->str == NULL)
 	{
+		free(new_node);
 		return (NULL);
 	}
-	new->str = strdup(str);
-	new->len = _strlen(str);
-	new->next = *head;
-	*head = new;
-	return (*head);
+
+	new_node->next = *head;
+
+	*head = new_node;
+
+	return (new_node);
 }
+
