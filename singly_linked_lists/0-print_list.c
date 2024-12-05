@@ -9,18 +9,18 @@
  */
 size_t print_list(const list_t *h)
 {
-	size_t count = 0;  /*Compteur pour le nombre de nœuds*/
+	size_t count = 0;
 
-	/* Parcours de la liste */
+
 	while (h != NULL)
 	{
-		if (h->str == NULL)  /* Si la chaîne est NULL, on affiche (nil)*/
+		if (h->str == NULL) 
 			printf("[0] (nil)\n");
-		else  /* Sinon, on affiche la longueur et la chaîne*/
+		else  
 			printf("[%u] %s\n", h->len, h->str);
 
-		h = h->next;  /*Avance au nœud suivant*/
-		count++;      /* Incrémente le compteur de nœuds*/
+		h = h->next;
+		count++;
 	}
 
 	return (count);
